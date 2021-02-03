@@ -1,0 +1,12 @@
+image:
+  file: .gitpod/Dockerfile
+tasks:
+  - init: |
+      mkdir /workspace/smadata
+      cd /workspace/SBFspot/SBFspot
+      sqlite3 /workspace/smadata/SBFspot.db < ./CreateSQLiteDB.sql
+      make sqlite
+    command: |
+      cd /workspace/SBFspot/SBFspot
+      make sqlite && make install_sqlite
+      
